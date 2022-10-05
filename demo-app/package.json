@@ -11,7 +11,9 @@
     "translate-fbts": "babel-node ../transform/babel-plugin-fbt/bin/translate.js --jenkins < ./translation_input.json > src/translatedFbts.json",
     "clean-fbts": "rm .enum_manifest.json .src_manifest.json source_strings.json src/translatedFbts.json 2&> /dev/null || exit 0",
     "start": "babel-node ../node_modules/webpack-dev-server/bin/webpack-dev-server --open",
-    "test": "babel-node ../node_modules/jest/bin/jest --config ./jest.config.json"
+    "test": "babel-node ../node_modules/jest/bin/jest --config ./jest.config.json",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "devDependencies": {
     "@babel/core": "7.2.2",
@@ -66,8 +68,10 @@
     "@babel/plugin-transform-runtime": "7.2.0",
     "babel-plugin-minify-replace": "0.5.0",
     "fbjs": "1.0.0",
-    "lodash": "4.17.11",
-    "npm": "^6.4.1",
-    "optimist": "^0.6.1"
-  }
+    "lodash": "4.17.21",
+    "npm": "^7.21.0",
+    "optimist": "^0.6.1",
+    "@snyk/protect": "latest"
+  },
+  "snyk": true
 }
